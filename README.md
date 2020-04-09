@@ -3,12 +3,15 @@
 Notes on how to compile a .asm file with .cpp using Visual Studio 2019:
 
 Step 1: Generate an .obj file from your .asm 
+
 ml64.exe
 
 Step 2: Generate an .obj file from your .cpp
+
 cl.exe
 
 Step 3: Link your object files and generate a .exe 
+
 link.exe
 
 
