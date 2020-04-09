@@ -10,7 +10,9 @@ Open "x64 Native Tools Command Prompt for VS 2019"
 
 # Recipe
 ml64.exe /c /nologo  /Fo"myfunction.obj" /Ta myfunction.asm 
+
 cl /c /nologo /EHsc /D UNICODE /MDd /Fo"mycode.obj" /TP  mycode.cpp 
+
 link.exe  /OUT:"mydemo.exe" /INCREMENTAL /NOLOGO  /SUBSYSTEM:CONSOLE mycode.obj myfunction.obj
 
 Enjoy your binary! 
