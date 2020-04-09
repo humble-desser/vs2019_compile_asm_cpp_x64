@@ -1,0 +1,15 @@
+# Simplistic form 
+ml64.exe /c /nologo  /Fo"myfunction.obj" /Ta myfunction.asm 
+
+cl /c /nologo /EHsc /D UNICODE /MDd /Fo"mycode.obj" /TP  mycode.cpp 
+
+link.exe  /OUT:"mydemo.exe" /INCREMENTAL /NOLOGO  /SUBSYSTEM:CONSOLE mycode.obj myfunction.obj
+
+
+# Complex and unnecessary
+
+ml64.exe /c /nologo /Zi /Fo"OUTPUT_FOLDER\YOUR-ASM.obj" /W3 /errorReport:prompt /Ta YOUR-ASM.asm 
+
+cl /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Qspectre /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"OUTPUT_FOLDER\YOURCPP-FILE.obj" /Fd"OUTPUT_FOLDER\YOURCPP-FILE.pdb" /Gd /TP /FC /errorReport:prompt YOUR-CPP-FILE.cpp 
+
+link.exe /ERRORREPORT:PROMPT /OUT:"OUTPUT_FOLDER\NAMEYOURBINARY-HERE.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG:FASTLINK /PDB:"OUTPUT_FOLDER\NAMEYOURBINARYNAMEHERE.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"OUTPUT_FOLDER\NAMEYOURBINARYNAMEHERE.lib" /MACHINE:X64 OUTPUTFOLDER\ENTER-CPP-FILE-GENERATED-OBJECT-HERE.obj OUTPUT_FOLDER\ENTER-YOUR-ASM-OBJECT-FILE-HERE.obj
