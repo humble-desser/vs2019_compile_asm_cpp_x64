@@ -10,7 +10,7 @@ Step 2: Generate an .obj file from your .cpp
 
 cl.exe
 
-Step 3: Link your object files and generate a .exe 
+Step 3: Link your object files and generate an .exe 
 
 link.exe
 
