@@ -1,9 +1,16 @@
-# Simplistic form 
+# Simplistic form (it will generate a smaller .exe with no dependencies) 
+
 ml64.exe /c /nologo  /Fo"myfunction.obj" /Ta myfunction.asm 
 
 cl /c /nologo /EHsc /D UNICODE /MDd /Fo"mycode.obj" /TP  mycode.cpp 
 
 link.exe  /OUT:"mydemo.exe" /INCREMENTAL /NOLOGO  /SUBSYSTEM:CONSOLE mycode.obj myfunction.obj
+
+
+# If you want a self-contained .exe please use this command for cl.exe
+cl /c /nologo /EHsc /D UNICODE /MT/Fo"mycode.obj" /TP  mycode.cpp 
+
+
 
 
 # Complex and unnecessary
