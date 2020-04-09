@@ -1,9 +1,12 @@
 # Simplistic form (it will generate a smaller .exe with no dependencies) 
 
+Step1:
 ml64.exe /c /nologo  /Fo"myfunction.obj" /Ta myfunction.asm 
 
+Step2: This step will generate smaller file (if you want a self contained .exe please replace /MDd with /MT instead) 
 cl /c /nologo /EHsc /D UNICODE /MDd /Fo"mycode.obj" /TP  mycode.cpp 
 
+Step3:
 link.exe  /OUT:"mydemo.exe" /INCREMENTAL /NOLOGO  /SUBSYSTEM:CONSOLE mycode.obj myfunction.obj
 
 
@@ -13,7 +16,7 @@ cl /c /nologo /EHsc /D UNICODE /MT/Fo"mycode.obj" /TP  mycode.cpp
 
 
 
-# Complex and unnecessary
+# Complex and unnecessary (I would not recommend or use all the flags) 
 
 ml64.exe /c /nologo /Zi /Fo"OUTPUT_FOLDER\YOUR-ASM.obj" /W3 /errorReport:prompt /Ta YOUR-ASM.asm 
 
