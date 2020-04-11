@@ -1,5 +1,20 @@
 # Simplistic form (it will generate a smaller .exe with no dependencies) 
 
+To generate smaller binaries I noticed I had to make few changes:
+
+Step 1: (replace "myfunction" name  with your .asm file)
+ml64.exe /c /nologo  /Fo"myfunction.obj" /Ta myfunction.asm 
+
+
+Step 2: (replace "my_program" name with your .cpp file and also add or remove kernel32.lib and user32.lib)
+cl.exe /nologo /EHsc /D UNICODE /MT /INCREMENTAL /Fo"my_program.obj" /TP my_program.cpp /link myfunction.obj myprogram.obj kernel32.lib user32.lib  /out:"my_program.exe"
+
+
+
+
+# OLD STUFF (IGNORE THIS) 
+
+# Simplistic form (it will generate a smaller .exe with no dependencies) 
 Step1:
 ml64.exe /c /nologo  /Fo"myfunction.obj" /Ta myfunction.asm 
 
@@ -12,6 +27,7 @@ link.exe  /OUT:"mydemo.exe" /INCREMENTAL /NOLOGO  /SUBSYSTEM:CONSOLE mycode.obj 
 
 # If you want a self-contained .exe please use this command for cl.exe
 cl /c /nologo /EHsc /D UNICODE /MT/Fo"mycode.obj" /TP  mycode.cpp 
+
 
 
 
